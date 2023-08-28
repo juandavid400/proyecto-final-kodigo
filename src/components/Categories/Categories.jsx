@@ -1,16 +1,12 @@
 import React from "react";
-import "./Home.scss";
+import "./Categories.scss";
 import Slider from "../../components/Slider/Slider";
 import FeatureProducts from "../../components/FeatureProducts/FeatureProducts";
 
-const Home = () => {
+const Categories = () => {
     return (
-        <div className="home">
-            <Slider/>
-            <FeatureProducts type="featured"/>
-            <FeatureProducts type="trending"/>
-        </div>
+        <div className="categories">categories</div>
     )
 }
 
-export default Home
+export default Categories
