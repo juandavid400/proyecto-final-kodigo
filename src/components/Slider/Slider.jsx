@@ -8,10 +8,17 @@ const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0)
 
     const data = [
-        "../img/samsung.png",
-        "../img/iphone-14.png",
-        "../img/google-pixel-7.png",
+        "../img/banner1.jpg",
+        "../img/banner2.jpg",
+        "../img/banner3.webp",
     ];
+
+    const primary = {
+        main: '#FFFFFF',
+        light: '#42a5f5',
+        dark: '#1565c0',
+        contrastText: '#fff',
+      };
 
     const prevSlide = () => {
         setCurrentSlide(currentSlide === 0 ? 2 : (prev) => prev - 1);
@@ -29,10 +36,10 @@ const Slider = () => {
             </div>
             <div className="icons">
                 <div className="icon" onClick={prevSlide}>
-                    <ArrowBackIcon/>
+                    <ArrowBackIcon style={{ color: 'black' }} />
                 </div>
                 <div className="icon" onClick={nextSlide}>
-                    <ArrowForwardIcon/>
+                    <ArrowForwardIcon style={{ color: 'black' }} />
                 </div>
             </div>
         </div>
