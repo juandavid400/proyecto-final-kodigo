@@ -1,0 +1,48 @@
+
+.tbl {
+    margin: 40px;
+  }
+
+  .btn-r {
+    margin-right: 15px;
+  }
+
+  .btn-nuevo {
+    background-color: #23ba1a;
+    color: #fff;
+    justify-content: right;
+  }
+
+  .btn-nuevo:focus {
+    background-color: #5dbe57;
+  }
+
+  .btn-editar {
+    background-color: #2b03fe;
+    color: #fff;
+  }
+
+  .btn-editar:focus {
+    background-color: #705dda;
+  }
+
+  .btn-eliminar {
+    background-color: #ff121e;
+    color: #fff;
+  }
+
+  .btn-eliminar:focus {
+    background-color: #f77178;
+  }
+
+  .cont-nuevo {
+    justify-items: right;
+  }
+
+  .btn-cr {
+    text-align: center;
+  }
+
+  .primary {
+    background-color: #2b03fe;
+  }
