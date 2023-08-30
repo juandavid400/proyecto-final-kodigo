@@ -9,6 +9,7 @@ import Product from "./pages/Product/Product";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Crud from "./components/Crud/CelularesCrud";
+import Juegos from "./components/Crud/JuegosCrud";
 import { Children } from "react";
 import "./app.scss";
 
@@ -42,6 +43,10 @@ const router = createBrowserRouter ([
       {
         path:"/celulares",
         element:<Crud/>
+      },
+      {
+        path:"/juegos",
+        element:<Juegos/>
       }
     ]
   },
