@@ -8,6 +8,7 @@ import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Crud from "./components/Crud/CelularesCrud";
 import { Children } from "react";
 import "./app.scss";
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter ([
       {
         path:"/product/:id",
         element:<Product/>
+      },
+      {
+        path:"/celulares",
+        element:<Crud/>
       }
     ]
   },
