@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Tabla.scss";
 
 const Tabla = ({cols, controlador, lista, evento}) => {
 
