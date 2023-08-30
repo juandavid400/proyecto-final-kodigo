@@ -6,12 +6,13 @@ const CelularesForm = ({id, del, actualizar}) => {
     if(del !== true)
             del = false
 
-    const [marca, setMarca] = useState("")
-    const [modelo, setModelo] = useState("")
-    const [color, setColor] = useState("")
-    const [precio, setPrecio] = useState("")
-    const [descripcion, setDescripcion] = useState("")
-    const [operadora, setOperadora] = useState("")
+    const [price, precio] = useState("")
+    const [img, setImg] = useState("")
+    const [img2, setImg2] = useState("")
+    const [title, setTitle] = useState("")
+    const [nuevo, setisNew] = useState("")
+    const [oldprice, oldPrice] = useState("")
+    // const [price, price] = useState("")
 
     useEffect(() => {
         
@@ -20,12 +21,12 @@ const CelularesForm = ({id, del, actualizar}) => {
             cargarCelulares()
         else{
 
-            setMarca("")
-            setModelo("")
-            setColor("")
-            setPrecio("")
-            setDescripcion("")
-            setOperadora("")
+            precio("")
+            setImg("")
+            setImg2("")
+            setTitle("")
+            setisNew("")
+            oldPrice("")
         }
     }, [id])
 
@@ -34,12 +35,12 @@ const CelularesForm = ({id, del, actualizar}) => {
             let res = await axios("https://denny2023.azurewebsites.net/api/celulares/"+id)
             let data = await res.data
 
-            setMarca(data.marca)
-            setModelo(data.modelo)
-            setColor(data.color)
-            setPrecio(data.precio)
-            setDescripcion(data.descripcion)
-            setOperadora(data.operadora)
+            precio(data.price)
+            setImg(data.img)
+            setImg2(data.img2)
+            setTitle(data.title)
+            setisNew(data.nuevo)
+            oldPrice(data.oldprice)
 
         }
         catch(error){
@@ -100,12 +101,12 @@ const CelularesForm = ({id, del, actualizar}) => {
             {
                 
                 celularId : id,
-                marca: marca,
-                modelo: modelo,
-                color: color,
-                precio: precio,
-                descripcion: descripcion,
-                operadora: operadora
+                price: price,
+                img: img,
+                img2: img2,
+                title: title,
+                nuevo: nuevo,
+                oldprice: oldprice,
             }
 
             let res = await axios.put("https://denny2023.azurewebsites.net/api/celulares", celular)
@@ -130,12 +131,12 @@ const CelularesForm = ({id, del, actualizar}) => {
         try{
             const celular =
             {
-                marca: marca,
-                modelo: modelo,
-                color: color,
-                precio,
-                descripcion: descripcion,
-                operadora: operadora
+                price: precio,
+                img: img,
+                img2: img2,
+                title,
+                nuevo: nuevo,
+                oldprice: oldprice
             }
 
             let res = await axios.post("https://denny2023.azurewebsites.net/api/celulares", celular)
@@ -176,38 +177,38 @@ const CelularesForm = ({id, del, actualizar}) => {
                 }
             
                 <div className='form-group mb-3'>
-                    <label className='form-label'>Marca:</label>
-                    <input required type="text" value={marca} onChange={(e) => setMarca(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese una marca" />
+                    <label className='form-label'>price:</label>
+                    <input required type="text" value={price} onChange={(e) => precio(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese el precio" />
                     <div className="valid-feedback">Correcto</div>
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>
                 <div className='form-group mb-3'>
-                    <label className='form-label'>Modelo:</label>
-                    <input required type="text" value={modelo} onChange={(e) => setModelo(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese un modelo" />
+                    <label className='form-label'>img:</label>
+                    <input required type="file" name='img' accept="image/*" value={img} onChange={(e) => setImg(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese un img" />
                     <div className="valid-feedback">Correcto</div>
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>
                 <div className='form-group mb-3'>
-                    <label className='form-label'>Color:</label>
-                    <input required type="text" value={color} onChange={(e) => setColor(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese un color" />
+                    <label className='form-label'>img2:</label>
+                    <input required type="file" name='img2' accept="image/*" value={img2} onChange={(e) => setImg2(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese un img2" />
                     <div className="valid-feedback">Correcto</div>
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>
                 <div className='form-group mb-3'>
-                    <label className='form-label'>Precio:</label>
-                    <input required type="text" value={precio} onChange={(e) => setPrecio(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese el precio" />
+                    <label className='form-label'>title:</label>
+                    <input required type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese el title" />
                     <div className="valid-feedback">Correcto</div>
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>
                 <div className='form-group mb-3'>
-                    <label className='form-label'>Descripción:</label>
-                    <input required type="text" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese la descripción" />
+                    <label className='form-label'>Es nuevo:</label>
+                    <input required type="text" value={nuevo} onChange={(e) => setisNew(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese true o false si es nuevo" />
                     <div className="valid-feedback">Correcto</div>
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>
                 <div className='form-group mb-3'>
-                    <label className='form-label'>Operadora:</label>
-                    <input required type="text" value={operadora} onChange={(e) => setOperadora(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese la operadoras" />
+                    <label className='form-label'>oldprice:</label>
+                    <input required type="text" value={oldprice} onChange={(e) => oldPrice(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese la oldprices" />
                     <div className="valid-feedback">Correcto</div>
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>

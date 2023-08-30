@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Tabla.scss";
 
-const Tabla = ({cols, controlador, lista, evento}) => {
+const Tabla = ({ cols, controlador, lista, evento }) => {
 
     /*
     useEffect(() => {
@@ -11,12 +11,13 @@ const Tabla = ({cols, controlador, lista, evento}) => {
     }, [])*/
 
     return (
+        
         <div className='tbl'>
             <table className='table table-bordered'>
                 <thead>
                     <tr className='text-center table-light'>
                         {
-                            cols.map((value, index) =>{
+                            cols.map((value, index) => {
                                 return <th key={index}>{value}</th>
                             })
                         }

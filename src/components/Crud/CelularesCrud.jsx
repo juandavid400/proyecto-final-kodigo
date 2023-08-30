@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import Menu from '../Navbar/Navbar'
 import Tabla from './Tabla'
 import axios from "axios"
 import CelularesForm from './CelularesForm'
@@ -33,9 +32,7 @@ const CelularesCrud = () => {
     }
 
     return (
-        <div>
-            <Menu />
-            
+        <div>            
             {
                 celulares === undefined ?
                 <div>
@@ -45,7 +42,7 @@ const CelularesCrud = () => {
                     <h2>Cargando...</h2>
                 </div>
                 :
-                <Tabla evento={configurar} controlador="celulares" lista={celulares} cols={["Celular ID", "Marca", "Modelo", "Color", "Precio", "Descripcion", "Operadora"]} />
+                <Tabla evento={configurar} controlador="celulares" lista={celulares} cols={["Celular ID", "Imagen 1", "Imagen 2", "Titulo", "Nuevo", "Precio viejo", "Precio"]} />
             }
         
 

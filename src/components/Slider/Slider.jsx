@@ -13,13 +13,6 @@ const Slider = () => {
         "../img/banner3.webp",
     ];
 
-    const primary = {
-        main: '#FFFFFF',
-        light: '#42a5f5',
-        dark: '#1565c0',
-        contrastText: '#fff',
-      };
-
     const prevSlide = () => {
         setCurrentSlide(currentSlide === 0 ? 2 : (prev) => prev - 1);
     };
@@ -29,7 +22,7 @@ const Slider = () => {
 
     return (
         <div className="slider">
-            <div className="container" style={{transform:`translateX(-${currentSlide * 100}vw)`}}>
+            <div className="containerSlider" style={{transform:`translateX(-${currentSlide * 100}vw)`}}>
                 <img src={data[0]} alt="Imagen carousel 1" />
                 <img src={data[1]} alt="Imagen carousel 2" />
                 <img src={data[2]} alt="Imagen carousel 3" />
