@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
-import "./FeatureProducts.scss";
-import Card from "../Card/Card";
-
 import { useState } from "react";
-import axios from "axios"
+import Card from "../Card/Card";
+import "./FeatureProducts.scss";
+import axios from "axios" 
 
 
-
-const FeatureProducts = ({type}) => {
+const FeatureProducts = ({ type }) => {
 
     /* const data = [
         {
@@ -48,26 +46,51 @@ const FeatureProducts = ({type}) => {
         },
     ] */
 
-    const [data, setData] = useState([]);
+    /* const [data, setData] = useState([]);
 
     useEffect (() => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(
-                    process.env.REACT_APP_API_URL + "/products?populate=*",
+                    process.env.VITE_REACT_APP_API_URL + "/products?populate=*",
                     {
                         headers: {
-                            Authorization: "bearer" + process.env.REACT_APP_API_TOKEN,
+                            Authorization: "bearer" + process.env.VITE_REACT_APP_API_TOKEN,
                         },
                     }
                 );
                 setData(res.data.data)
             } catch(err){
-                console.log(err)
+                console.log(err);
+            }
+        };
+        fetchData();
+    }, []); */
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(
+                    import.meta.env.VITE_REACT_APP_API_URL + "/products?populate=*",
+                    {
+                        headers: {
+                            Authorization: "bearer " + import.meta.env.VITE_REACT_APP_API_TOKEN,
+                        },
+                    }
+                );
+                setData(res.data.data)
+            } catch (err) {
+                console.log(err);
             }
         };
         fetchData();
     }, []);
+
+
+
+
 
 
     return (
@@ -78,7 +101,7 @@ const FeatureProducts = ({type}) => {
             </div>
             <div className="bottom">
                 {data.map(item => (
-                    <Card item = {item} key = {item.id}/>
+                    <Card item = {item} key={item.id}/>
                 ))}
             </div>
         </div>

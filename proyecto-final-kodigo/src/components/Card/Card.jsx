@@ -7,23 +7,27 @@ const Card = ({item}) => {
         <Link className="link" to={`/product/${item.id}`}>
         <div className="card">
             <div className="image">
-                {item.atributes.isNew && <span>Ofertas de temporada</span>}
+                {item?.atributes?.isNew && <span>Ofertas de temporada</span>}
+                <img 
+                src={
+                    item?.atributes?.img?.data?.atributes?.url 
+                        ? import.meta.env.VITE_REACT_APP_UPLOAD_URL + item.atributes?.img?.data?.atributes?.url
+                        : ""
+                } 
+                alt="Articulo en descuento 1" className="mainImg" />
                 <img 
                     src={
-                        process.env.REACT_APP_UPLOAD_URL + item.atributes?.img?.data?.atributes?.url
-                    } 
-                    alt="Articulo en descuento 1" className="mainImg" />
-                <img 
-                    src={
-                        process.env.REACT_APP_UPLOAD_URL+ item.atributes?.img2?.data?.atributes?.url
+                        item?.atributes?.img2?.data?.atributes?.url 
+                            ? import.meta.env.VITE_REACT_APP_UPLOAD_URL + item.atributes?.img2?.data?.atributes?.url
+                            : ""
                     } 
                     alt="Articulo en descuento 1 hover" className="secondImg" />
             </div>
             
             <h2>{item?.atributes}</h2>
             <div className="prices">
-                <h3>${item.oldPrice || item?.atributes.price + 20}</h3>
-                <h3>${item?.atributes}</h3>
+                <h3>${item?.oldPrice || item?.atributes?.price + 20}</h3>
+                <h3>${item?.atributes?.price}</h3>
             </div>            
         </div>
         </Link>
