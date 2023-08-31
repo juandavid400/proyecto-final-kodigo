@@ -1,38 +1,117 @@
-.footer {
-    margin-top: 100px 200px 20px 200px;
+p{
+    width: 20%;
+    padding: 0%;
+    color: rgb(240, 232, 232);
+    margin: 4px;
+    font-size: 15px;
+    text-align: center;
+}
 
+.footer {
+    
+    margin-right: 100px 200px 20% 200px;
+    background-color: rgb(15, 12, 12);
+    
+
+
+   
+ 
+    
     .top {
         display: flex;
         gap: 50px;
+        margin: 1%;
+        padding: 1%;
+        margin-right: 3%;
+    }
+
+  
+       
+    .sociales a {
+        margin: 2%;
+        width: 20%;
+        
+    }   
+    
+    #a1{
+        color: blue;
+    }
+
+    #a1:hover {
+        color: rgba(73, 49, 159, 0.986);
+    }
+
+    #a2{
+        color: rgb(11, 182, 254);
+    }
+
+    #a2:hover {
+        color: rgb(5, 106, 160);
+    }
+
+    #a3{
+        color: rgb(243, 119, 18);
+    }
+
+    #a3:hover {
+        color: rgb(105, 50, 4);
+    }
 
         .item {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 35px;
             text-align: justify;
             font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+           
+            
+            
 
-            h2 {
-                font-size: 18px;
+           
+
+            h4 {
+                font-size: 21px;
                 font-weight: 500;
-                color: grey;
+                color: rgb(240, 232, 232);
+                margin: 15% 5% 5% 5%;
+                
+
             }
 
             span {
-                color: grey;
+                color: rgb(150, 149, 149);
+                margin-bottom: 5%;
+                 
             }
+
+           
+
+            span:hover {
+                color: rgb(240, 232, 232);
+
+
+            }
+
+           
         }
+
+       
     }
     .bottom {        
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-top: 50px;
+        margin-top: 5px;
+        margin-right: 3%;
+
+        
 
         .left{
             display: flex;
             align-items: center;
+            margin-left: 2%;
 
             .logo{
                 color: blue;
@@ -43,14 +122,16 @@
             .copyright {
                 margin-left: 20px;
                 font-size: 12px;
-                color: grey;
+                color: rgb(213, 213, 213);
+                
             }
         }        
 
         .right{
             img {
                 height: 100px;
+                filter: brightness(2);
+                
             }
         }
     }
-}
