@@ -52,12 +52,15 @@ const FeatureProducts = ({type}) => {
 
     useEffect (() => {
         const fetchData = async () => {
-            try{
-                const res = await axios.get(process.env.REACT_APP_API_URL+"/products",{
-                    headers:{
-                        Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
+            try {
+                const res = await axios.get(
+                    process.env.REACT_APP_API_URL + "/products?populate=*",
+                    {
+                        headers: {
+                            Authorization: "bearer" + process.env.REACT_APP_API_TOKEN,
+                        },
                     }
-                });
+                );
                 setData(res.data.data)
             } catch(err){
                 console.log(err)
@@ -65,6 +68,7 @@ const FeatureProducts = ({type}) => {
         };
         fetchData();
     }, []);
+
 
     return (
         <div className="featureProducts">

@@ -8,8 +8,16 @@ const Card = ({item}) => {
         <div className="card">
             <div className="image">
                 {item.atributes.isNew && <span>Ofertas de temporada</span>}
-                <img src={item.img} alt="Articulo en descuento 1" className="mainImg" />
-                <img src={item.img2} alt="Articulo en descuento 1 hover" className="secondImg" />
+                <img 
+                    src={
+                        process.env.REACT_APP_UPLOAD_URL + item.atributes?.img?.data?.atributes?.url
+                    } 
+                    alt="Articulo en descuento 1" className="mainImg" />
+                <img 
+                    src={
+                        process.env.REACT_APP_UPLOAD_URL+ item.atributes?.img2?.data?.atributes?.url
+                    } 
+                    alt="Articulo en descuento 1 hover" className="secondImg" />
             </div>
             
             <h2>{item?.atributes}</h2>
