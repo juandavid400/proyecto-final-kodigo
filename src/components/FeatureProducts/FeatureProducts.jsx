@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./FeatureProducts.scss";
 import Card from "../Card/Card";
 
+import { useState } from "react";
+import axios from "axios"
+
+
 const FeatureProducts = ({type}) => {
 
-    const data = [
+    /* const data = [
         {
             id: 1,
             img: "../img/samsung.png",
@@ -41,7 +45,25 @@ const FeatureProducts = ({type}) => {
             oldPrice: 999,
             price: 899,
         },
-    ]
+    ] */
+
+    const [data, setData] = useState([]);
+
+    useEffect (() => {
+        const fetchData = async () => {
+            try{
+                const res = await axios.get(process.env.REACT_APP_API_URL+"/products",{
+                    headers:{
+                        Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
+                    }
+                });
+                setData(res.data.data)
+            } catch(err){
+                console.log(err)
+            }
+        };
+        fetchData();
+    }, []);
 
     return (
         <div className="featureProducts">
