@@ -2,6 +2,7 @@ import React from "react";
 import "./Card.scss";
 import { Link } from "react-router-dom";
 
+
 const Card = ({item}) => {
     return (
         <Link className="link" to={`/product/${item.id}`}>
@@ -11,14 +12,15 @@ const Card = ({item}) => {
                 <img 
                 src={
                     item?.atributes?.img?.data?.atributes?.url 
-                        ? import.meta.env.VITE_REACT_APP_UPLOAD_URL + item.atributes?.img?.data?.atributes?.url
+                        ? import.meta.env.VITE_REACT_APP_UPLOAD_URL + item.atributes?.img?.data?.atributes?.url.id
                         : ""
                 } 
+
                 alt="Articulo en descuento 1" className="mainImg" />
                 <img 
                     src={
-                        item?.atributes?.img2?.data?.atributes?.url 
-                            ? import.meta.env.VITE_REACT_APP_UPLOAD_URL + item.atributes?.img2?.data?.atributes?.url
+                        item?.atributes?.img2?.data?.atributes?.url
+                            ? import.meta.env.VITE_REACT_APP_UPLOAD_URL + item.atributes?.img2?.data?.atributes?.url.id
                             : ""
                     } 
                     alt="Articulo en descuento 1 hover" className="secondImg" />
