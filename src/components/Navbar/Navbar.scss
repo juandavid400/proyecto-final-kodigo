@@ -1,5 +1,8 @@
 .navbar {
-    height: 80px;
+    height: 55px;
+    background-color: rgb(51, 51, 51);
+    border: 0.5px solid black;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, 0.782);
 
     .wrapper {
         padding: 10px 30px;
@@ -12,6 +15,8 @@
         display: flex;
         align-items: center;
         font-size: 18px;
+        font-family: 'Lato', sans-serif;
+        color: whitesmoke
     }
 
     .left{
@@ -23,6 +28,10 @@
     .center{
         font-size: 30px;
         letter-spacing: 2px;
+        font-family: 'Helvetica', sans-serif;
+        font-weight: bold;
+        color: whitesmoke
+        
     }
     
     .right{
