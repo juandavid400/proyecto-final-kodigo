@@ -12,10 +12,10 @@ const Card = ({item}) => {
                 <img src={item.img2} alt="Articulo en descuento 1 hover" className="secondImg" />
             </div>
             
-            <h2>{item.title}</h2>
+            <h2>{item?.atributes}</h2>
             <div className="prices">
-                <h3>${item.oldPrice}</h3>
-                <h3>${item.price}</h3>
+                <h3>${item.oldPrice || item?.atributes.price + 20}</h3>
+                <h3>${item?.atributes}</h3>
             </div>            
         </div>
         </Link>

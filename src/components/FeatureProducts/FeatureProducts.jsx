@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios"
 
 
+
 const FeatureProducts = ({type}) => {
 
     /* const data = [
