@@ -1,26 +1,55 @@
-.featureProducts {
-    margin: 100px 200px;
+.navbarEspecial {
+  height: 80px;
+  height: 55px;
+  background-color: rgb(51, 51, 51);
+  border: 0.5px solid black;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.782);
 
-    .top {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
+  .wrapperEspecial {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+    color: whitesmoke;
+  }
 
-        h2 {
-            flex: 2;
-            text-transform: capitalize;
-        }
-
-        p {
-            flex: 3;
-            color: grey;
-        }
+  .leftEspecial {
+    .centerEspecial {
+      font-size: 30px;
+      letter-spacing: 2px;
+      font-family: "Helvetica", sans-serif;
+      font-weight: bold;
+      color: whitesmoke;
     }
 
-    .bottom {
+    .rightEspecial {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      .iconsEspecial {
         display: flex;
-        justify-content: center;
-        gap: 50px;
+        gap: 15px;
+        color: grey;
+        cursor: pointer;
+        .cartIconEspecial {
+          position: relative;
+          span {
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: blue;
+            color: white;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
     }
+  }
 }

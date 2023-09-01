@@ -1,45 +1,48 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios"
 
-const CelularesForm = ({id, del, actualizar}) => {
+const JuegosForm = ({id, del, actualizar}) => {
 
     if(del !== true)
             del = false
 
-    const [marca, setMarca] = useState("")
+    /* const [marca, setMarca] = useState("")
     const [modelo, setModelo] = useState("")
     const [color, setColor] = useState("")
     const [precio, setPrecio] = useState("")
     const [descripcion, setDescripcion] = useState("")
-    const [operadora, setOperadora] = useState("")
+    const [operadora, setOperadora] = useState("") */
+
+    const [titulo, setTitulo] = useState("")
+    const [descripcion, setDescripcion] = useState("")
+    const [plataforma, setPlataforma] = useState("")
+    const [precio, setPrecio] = useState("")
+    const [categoria, setCategoria] = useState("")
 
     useEffect(() => {
         
 
         if(id !== undefined)
-            cargarCelulares()
+            cargarJuegos()
         else{
 
-            setMarca("")
-            setModelo("")
-            setColor("")
-            setPrecio("")
+            setTitulo("")
             setDescripcion("")
-            setOperadora("")
+            setPlataforma("")
+            setPrecio("")
+            setCategoria("")
         }
     }, [id])
 
-    async function cargarCelulares(){
+    async function cargarJuegos(){
         try{
-            let res = await axios("https://denny2023.azurewebsites.net/api/celulares/"+id)
+            let res = await axios("https://denny2023.azurewebsites.net/api/juegos/"+id)
             let data = await res.data
-
-            setMarca(data.marca)
-            setModelo(data.modelo)
-            setColor(data.color)
-            setPrecio(data.precio)
+            setTitulo(data.titulo)
             setDescripcion(data.descripcion)
-            setOperadora(data.operadora)
+            setPlataforma(data.plataforma)
+            setPrecio(data.precio)
+            setCategoria(data.categoria)
 
         }
         catch(error){
@@ -77,7 +80,7 @@ const CelularesForm = ({id, del, actualizar}) => {
 
     async function eliminar(){
         try{
-            let res = await axios.delete("https://denny2023.azurewebsites.net/api/celulares?id=" + id)
+            let res = await axios.delete("https://denny2023.azurewebsites.net/api/juegos?id=" + id)
             let data = await res.data
 
             alert(data.message)
@@ -96,19 +99,17 @@ const CelularesForm = ({id, del, actualizar}) => {
 
     async function editar(){
         try{
-            const celular =
+            const juego =
             {
-                
-                celularId : id,
-                marca: marca,
-                modelo: modelo,
-                color: color,
-                precio: precio,
+                juegoId: id,
+                titulo: titulo,
                 descripcion: descripcion,
-                operadora: operadora
+                plataforma: plataforma,
+                precio: precio,
+                categoria: categoria
             }
 
-            let res = await axios.put("https://denny2023.azurewebsites.net/api/celulares", celular)
+            let res = await axios.put("https://denny2023.azurewebsites.net/api/juegos", juego)
             let data = await res.data
 
             alert(data.message)
@@ -128,17 +129,16 @@ const CelularesForm = ({id, del, actualizar}) => {
 
     async function guardar(){
         try{
-            const celular =
+            const juego =
             {
-                marca: marca,
-                modelo: modelo,
-                color: color,
-                precio,
+                titulo: titulo,
                 descripcion: descripcion,
-                operadora: operadora
+                plataforma: plataforma,
+                precio,
+                categoria: categoria
             }
 
-            let res = await axios.post("https://denny2023.azurewebsites.net/api/celulares", celular)
+            let res = await axios.post("https://denny2023.azurewebsites.net/api/juegos", juego)
             let datos = res.data
 
             alert(datos.message)
@@ -176,26 +176,8 @@ const CelularesForm = ({id, del, actualizar}) => {
                 }
             
                 <div className='form-group mb-3'>
-                    <label className='form-label'>Marca:</label>
-                    <input required type="text" value={marca} onChange={(e) => setMarca(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese una marca" />
-                    <div className="valid-feedback">Correcto</div>
-                    <div className="invalid-feedback">Complete el campo</div>
-                </div>
-                <div className='form-group mb-3'>
-                    <label className='form-label'>Modelo:</label>
-                    <input required type="text" value={modelo} onChange={(e) => setModelo(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese un modelo" />
-                    <div className="valid-feedback">Correcto</div>
-                    <div className="invalid-feedback">Complete el campo</div>
-                </div>
-                <div className='form-group mb-3'>
-                    <label className='form-label'>Color:</label>
-                    <input required type="text" value={color} onChange={(e) => setColor(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese un color" />
-                    <div className="valid-feedback">Correcto</div>
-                    <div className="invalid-feedback">Complete el campo</div>
-                </div>
-                <div className='form-group mb-3'>
-                    <label className='form-label'>Precio:</label>
-                    <input required type="text" value={precio} onChange={(e) => setPrecio(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese el precio" />
+                    <label className='form-label'>Titulo:</label>
+                    <input required type="text" value={titulo} onChange={(e) => setTitulo(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese una marca" />
                     <div className="valid-feedback">Correcto</div>
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>
@@ -206,8 +188,20 @@ const CelularesForm = ({id, del, actualizar}) => {
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>
                 <div className='form-group mb-3'>
-                    <label className='form-label'>Operadora:</label>
-                    <input required type="text" value={operadora} onChange={(e) => setOperadora(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese la operadoras" />
+                    <label className='form-label'>Plataforma:</label>
+                    <input required type="text" value={plataforma} onChange={(e) => setPlataforma(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese un modelo" />
+                    <div className="valid-feedback">Correcto</div>
+                    <div className="invalid-feedback">Complete el campo</div>
+                </div>
+                <div className='form-group mb-3'>
+                    <label className='form-label'>Precio:</label>
+                    <input required type="text" value={precio} onChange={(e) => setPrecio(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese el precio" />
+                    <div className="valid-feedback">Correcto</div>
+                    <div className="invalid-feedback">Complete el campo</div>
+                </div>
+                <div className='form-group mb-3'>
+                    <label className='form-label'>Categoria:</label>
+                    <input required type="text" value={categoria} onChange={(e) => setCategoria(e.target.value)} className="form-control" disabled={del} placeholder="Ingrese la operadoras" />
                     <div className="valid-feedback">Correcto</div>
                     <div className="invalid-feedback">Complete el campo</div>
                 </div>
@@ -221,4 +215,4 @@ const CelularesForm = ({id, del, actualizar}) => {
     )
 }
 
-export default CelularesForm;
+export default JuegosForm;
