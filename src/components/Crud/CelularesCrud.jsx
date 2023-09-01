@@ -32,14 +32,19 @@ const CelularesCrud = () => {
     }
 
     return (
-        <div>            
+        <div>
             {
                 celulares === undefined ?
-                <div>
-                    <div className="spinner-border" role="status">
+                <div className='spin'>
+                    {/* <div className="spinner-border" role="status">
                         <span className="visually-hidden">Loading...</span>
                     </div>
-                    <h2>Cargando...</h2>
+                    <h2>Cargando...</h2> */}
+
+                    <div className="spinner-border text-primary" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                    <h2>Cargando</h2>
                 </div>
                 :
                 <Tabla evento={configurar} controlador="celulares" lista={celulares} cols={["Celular ID", "Imagen 1", "Imagen 2", "Titulo", "Nuevo", "Precio viejo", "Precio"]} />
@@ -47,18 +52,19 @@ const CelularesCrud = () => {
         
 
         <div className="modal fade" id="celularesModal" tabIndex="-1" aria-labelledby="celularesModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-            <div className="modal-content">
-            <div className="modal-header">
-                <h1 className="modal-title fs-5" id="celularesModalLabel">Formulario Celulares</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal-dialog">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h1 className="modal-title fs-5" id="celularesModalLabel">Formulario Celulares</h1>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <CelularesForm id={id} del={del} actualizar={cargarCelulares} />
+                </div>
+                </div>
             </div>
-            <div className="modal-body">
-                <CelularesForm id={id} del={del} actualizar={cargarCelulares} />
-            </div>
-            </div>
-        </div>
-        </div>
+        </div> 
+
     </div>
     )
 }
